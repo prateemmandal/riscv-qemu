@@ -241,9 +241,22 @@ Notes
   - hw/riscv/
   - linux-user/riscv
 
+Prateem's Notes
+---------------
+
+- Build failure due to sysmacros.h not included can be fixed by applying [sysmacros-patch].
+- Build failure due to truncation warning has no good immediate fix. Simply supress it for now using -Wno-format-truncation. 
+- Build commands:
+  - [prateem@turing riscv-qemu]$ pwd
+    /home/prateem/riscv/riscv-qemu
+  - [prateem@turing riscv-qemu]$ ./configure --target-list=riscv64-softmmu,riscv32-softmmu --prefix=/home/prateem/riscv/riscv-qemu-install
+  - make; make install;
+  - [prateem@turing riscv-qemu]$ /home/prateem/riscv/riscv-qemu-install/bin/qemu-system-riscv64 -kernel ~/Downloads/bblvmlinuxinitramfs_dynamic -nographic
+  
 [riscv-linux]:https://github.com/riscv/riscv-linux/tree/priv-1.9
 [Buildroot]:https://github.com/a0u/buildroot
 [riscv-tests]:https://github.com/riscv/riscv-tests
 [proxy kernel]:https://github.com/riscv/riscv-pk
 [riscv-qemu-tests]:https://github.com/arsv/riscv-qemu-tests
 [riscv-tools]:https://github.com/riscv/riscv-tools/tree/745e74afb56ecba090669615d4ac9c9b9b96c653
+[sysmacros-patch]:https://patchwork.kernel.org/patch/9490631/
